@@ -35,16 +35,17 @@ echo '</thead>';
 echo '<tbody>';
 
 foreach ($as_links as $index => $link) {
+  $value = json_decode($link->value);
   echo '<tr>';
   echo '<td>';
   echo $link->updated_at;
   echo '</td>';
   echo '<td>';
-  echo $link->value->author ?? $link->author;
+  echo $value->author ?? $link->author;
   echo '</td>';
   echo '<td>';
-  if (!empty(json_decode($link->value)->selection)) {
-    foreach (json_decode($link->value)->selection as $index => $goal) {
+  if (!empty($value->selection)) {
+    foreach ($value->selection as $index => $goal) {
       if ($index>0) echo '<br/>';
       echo $goal->title;
     }
