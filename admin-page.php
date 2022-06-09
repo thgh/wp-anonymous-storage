@@ -30,6 +30,7 @@ echo '<tr>';
 echo '<th>Date</th>';
 echo '<th>Author</th>';
 echo '<th>Goals</th>';
+echo '<th>Acties</th>';
 echo '</tr>';
 echo '</thead>';
 echo '<tbody>';
@@ -52,6 +53,9 @@ foreach ($as_links as $index => $link) {
   } else {
     echo '<span class="invalid">Invalid!!!</span>';
   }
+  echo '</td>';
+  echo '<td>';
+  echo '<a href="/mijn-doelen?readkey=' . $link->readkey . '&writekey=' . $link->writekey . '">Open</a>';
   echo '</td>';
   echo '</tr>';
 }
